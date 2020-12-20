@@ -1,6 +1,20 @@
 // IMPORT MODULES under test here:
-import { doesUserWin } from '../gameUtils.js'
+import { doesUserWin, getRandomThrow } from '../gameUtils.js'
 const test = QUnit.test;
+
+test('tests that the getRandomThrow function returns a string', (expect) => {
+    //Arrange
+    // Set up your arguments and expectations
+    const dataType = 'string'
+
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = typeof (getRandomThrow());
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.equal(actual, dataType);
+});
 
 test('tests if user wins using -1 for a lose, 0 for a draw, and 1 for a win for PAPER scenarios', (expect) => {
     //Arrange
@@ -18,9 +32,9 @@ test('tests if user wins using -1 for a lose, 0 for a draw, and 1 for a win for 
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual1, -1);
-    expect.equal(actual2, 0);
-    expect.equal(actual3, 1);
+    expect.equal(actual1, 'lose');
+    expect.equal(actual2, 'draw');
+    expect.equal(actual3, 'win');
 });
 
 test('tests if user wins using -1 for a lose, 0 for a draw, and 1 for a win for ROCK scenarios', (expect) => {
@@ -39,9 +53,9 @@ test('tests if user wins using -1 for a lose, 0 for a draw, and 1 for a win for 
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual1, 0);
-    expect.equal(actual2, 1);
-    expect.equal(actual3, -1);
+    expect.equal(actual1, 'draw');
+    expect.equal(actual2, 'win');
+    expect.equal(actual3, 'lose');
 });
 
 test('tests if user wins using -1 for a lose, 0 for a draw, and 1 for a win for SCISSORS scenarios', (expect) => {
@@ -60,7 +74,7 @@ test('tests if user wins using -1 for a lose, 0 for a draw, and 1 for a win for 
 
     //Expect
     // Make assertions about what is expected versus the actual result
-    expect.equal(actual1, 1);
-    expect.equal(actual2, -1);
-    expect.equal(actual3, 0);
+    expect.equal(actual1, 'win');
+    expect.equal(actual2, 'lose');
+    expect.equal(actual3, 'draw');
 });
