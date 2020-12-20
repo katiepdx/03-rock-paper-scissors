@@ -1,11 +1,11 @@
 // IMPORT MODULES under test here:
-import { doesUserWin, getRandomThrow } from '../gameUtils.js'
+import { doesUserWin, getRandomThrow } from '../gameUtils.js';
 const test = QUnit.test;
 
 test('tests that the getRandomThrow function returns a string', (expect) => {
     //Arrange
     // Set up your arguments and expectations
-    const dataType = 'string'
+    const dataType = 'string';
 
     //Act 
     // Call the function you're testing and set the result to a const
