@@ -1,6 +1,11 @@
 // import functions and grab DOM elements
 import { getRandomThrow, doesUserWin } from './gameUtils.js';
 
+const usersWins = document.querySelector('.wins');
+const usersLoses = document.querySelector('.loses');
+const usersDraws = document.querySelector('.draws');
+const usersSelection = document.querySelector('.users-choice');
+const computersSelection = document.querySelector('.computers-choice');
 const button = document.querySelector('.button');
 
 // initialize state
@@ -20,11 +25,17 @@ button.addEventListener('click', (e) => {
 
   if (!inputChecked) return alert('Please make a selection');
 
-  usersChoice = inputChecked.id
+  usersChoice = inputChecked.id;
 
   const result = doesUserWin(usersChoice, computersChoice);
 
   if (result === 'win') wins++;
   if (result === 'draw') draws++;
   if (result === 'lose') loses++;
+
+  usersWins.textContent = wins;
+  usersLoses.textContent = loses;
+  usersDraws.textContent = draws;
+  usersSelection.textContent = usersChoice;
+  computersSelection.textContent = computersChoice;
 });
