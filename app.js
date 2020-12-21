@@ -15,6 +15,21 @@ let wins = 0;
 let loses = 0;
 let draws = 0;
 
+// Functions 
+const incrementScore = (result) => {
+  if (result === 'win') wins++;
+  if (result === 'draw') draws++;
+  if (result === 'lose') loses++;
+}
+
+const updateDOM = () => {
+  usersWins.textContent = wins;
+  usersLoses.textContent = loses;
+  usersDraws.textContent = draws;
+  usersSelection.textContent = usersChoice;
+  computersSelection.textContent = computersChoice;
+}
+
 // set event listeners to update state and DOM
 button.addEventListener('click', (e) => {
   e.preventDefault();
@@ -29,13 +44,6 @@ button.addEventListener('click', (e) => {
 
   const result = doesUserWin(usersChoice, computersChoice);
 
-  if (result === 'win') wins++;
-  if (result === 'draw') draws++;
-  if (result === 'lose') loses++;
-
-  usersWins.textContent = wins;
-  usersLoses.textContent = loses;
-  usersDraws.textContent = draws;
-  usersSelection.textContent = usersChoice;
-  computersSelection.textContent = computersChoice;
+  incrementScore(result);
+  updateDOM();
 });
