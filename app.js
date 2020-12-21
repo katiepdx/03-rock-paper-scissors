@@ -17,33 +17,33 @@ let draws = 0;
 
 // Functions 
 const incrementScore = (result) => {
-  if (result === 'win') wins++;
-  if (result === 'draw') draws++;
-  if (result === 'lose') loses++;
-}
+    if (result === 'win') wins++;
+    if (result === 'draw') draws++;
+    if (result === 'lose') loses++;
+};
 
 const updateDOM = () => {
-  usersWins.textContent = wins;
-  usersLoses.textContent = loses;
-  usersDraws.textContent = draws;
-  usersSelection.textContent = usersChoice;
-  computersSelection.textContent = computersChoice;
-}
+    usersWins.textContent = wins;
+    usersLoses.textContent = loses;
+    usersDraws.textContent = draws;
+    usersSelection.textContent = usersChoice;
+    computersSelection.textContent = computersChoice;
+};
 
 // set event listeners to update state and DOM
 button.addEventListener('click', (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  computersChoice = getRandomThrow();
+    computersChoice = getRandomThrow();
 
-  const inputChecked = document.querySelector('input:checked');
+    const inputChecked = document.querySelector('input:checked');
 
-  if (!inputChecked) return alert('Please make a selection');
+    if (!inputChecked) return alert('Please make a selection');
 
-  usersChoice = inputChecked.id;
+    usersChoice = inputChecked.id;
 
-  const result = doesUserWin(usersChoice, computersChoice);
+    const result = doesUserWin(usersChoice, computersChoice);
 
-  incrementScore(result);
-  updateDOM();
+    incrementScore(result);
+    updateDOM();
 });
